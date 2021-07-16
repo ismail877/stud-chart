@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>myChart</title>
+</head>
+
+<body>
+    <center>
+        <h1>Welcome to the Student Data </h1>
+        <h2>Marks for the month of January, February and March</h2>
+        <h3>are below in Graphs.</h3>
+    </center>
+    <div align="center"> <textarea id="sub8title" name="Subtitle" rows="10" cols="20">
+Student A ---- RED
+        
+Student B ---- GREEN
+       
+Student C ---- BLUE
+        
+Student D ---- YELLOW
+      
+   
+        </textarea> </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
+
+
+    <canvas id="myChart" style="width:100%;max-width:800px;height:500px"></canvas>
+    <canvas id="chartJSContainer" width="30" height="10"></canvas>
+    <script>var options = {
+            type: 'bar',
+            data: {
+                labels: ["Student_A", "Student_B", "Student_C", "Student_D"],
+                datasets: [
+                    {
+                        data: [891, 954, 839, 800]
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    
+                    display: true,
+                    position: 'top',
+                    text: ['Student A', 'Student B','Student C','Student D'],
+                    fontSize: 14
+                },
+            }
+        }
+
+        var ctx = document.getElementById('chartJSContainer').getContext('2d');
+        new Chart(ctx, options);
+        
+    </script>
+
+<center> <h2> Comparison of the Total Result in PIE Chart</h2></center>
+    <script>
+
+
+        var xValues = ["January", "Fedruary", "March"];
+
+        new Chart("myChart", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    label: "Student_A",
+                    data: [286, 302, 303],
+                    pointRadius: 6,
+                    borderColor: "red",
+                    backgroundColor: "cyan",
+                    fill: false
+                }, {
+                    label: "Student_B",
+                    data: [310, 305, 330],
+                    pointRadius: 6,
+                    borderColor: "green",
+                    backgroundColor: "cyan",
+                    fill: false
+                }, {
+                    label: "Student_C",
+                    data: [264, 270, 305],
+                    pointRadius: 6,
+                    borderColor: "blue",
+                    backgroundColor: "cyan",
+                    fill: false
+                }, {
+                    label: "Student_D",
+                    data: [239, 275, 286],
+                    pointRadius: 6,
+                    borderColor: "yellow",
+                    backgroundColor: "cyan",
+                    fill: false
+                },]
+            },
+            options: {
+                legend: { display: false }
+            }
+        });
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
